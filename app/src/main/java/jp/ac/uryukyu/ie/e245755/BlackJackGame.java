@@ -11,12 +11,13 @@ public class BlackJackGame {
         dealer = new Player(true);
     }
 
-    private void start(){
+    public void start(){
         //プレイヤーとディーラに初期カードを2枚配布
+        dealer.addCard(deck.draw());
+        System.out.println(dealer + " + 非公開なカード"); //ディーラの手札1枚目：公開
+        dealer.addCard(deck.draw()); //ディーラの手札2枚目：非公開
         player.addCard(deck.draw());
         player.addCard(deck.draw());
-        dealer.addCard(deck.draw());
-        dealer.addCard(deck.draw());
 
         //プレイヤーのターン
         System.out.println(player);
@@ -57,10 +58,5 @@ public class BlackJackGame {
         } else {
             System.out.println("引き分け");
         }
-    }
-    
-    public static void main(String[] args){
-        BlackJackGame game = new BlackJackGame();
-        game.start();
     }
 }

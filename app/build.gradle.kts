@@ -38,7 +38,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "org.example.App"
+    mainClass = "BlackJackMain"
 }
 
 tasks.named<Test>("test") {
@@ -48,6 +48,11 @@ tasks.named<Test>("test") {
 
 tasks.withType<Jar> {
     manifest {
-        attributes["Main-Class"] = "jp.ac.uryukyu.ie.e245755.App"
+        attributes["Main-Class"] = "BlackJackMain"
     }
+}
+
+// build.gradle.kts (Kotlin syntax)
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }

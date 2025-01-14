@@ -17,8 +17,17 @@ public class Player {
 
     public int calculateHandValue(){ //カードの合計値
         int value = 0;
+        int aceValue = 0;
         for(Card card : hand){
             value += card.getValue();
+            if(card.toString().contains("A")){ //手札にAが含まれるか
+                aceValue ++;
+            }
+            while (aceValue > 0 && value <= 11) { //手札にAが含まれる　かつ　合計値が11未満
+                //"A"の値を11として換算する
+                value += 10;
+                aceValue --;
+            }
         }
         return value;
     }

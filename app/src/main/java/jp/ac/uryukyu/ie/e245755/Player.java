@@ -28,10 +28,15 @@ public class Player {
                 value += 10;
                 aceValue --;
             }
+            while (aceValue > 0 && value > 21) {
+                value -= 10; // "A" の値を 11 -> 1 に調整
+                aceValue--;
+            }
+            
         }
         return value;
     }
-
+   
     public boolean isBust(){ //バーストの判定
         return calculateHandValue() > 21;
     }

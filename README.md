@@ -1,18 +1,46 @@
-## Getting Started
+# BlackJack's Game
+## BlackJack (別名：Twenty one) とは
+ディーラとプレイヤーの対戦型トランプゲーム。
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+手札のカードの合計が「21点」により近い方が勝者となる。
 
-## Folder Structure
+ただし、合計が「21点」を超えた時点でBUST(バースト)し敗北となる。
 
-The workspace contains two folders by default, where:
+## ルール
+- ジョーカーを除いたトランプカード52枚を扱う。
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- プレイヤーとディーラ(NPC)の2人でプレイする。
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- 手札の合計点数がより「21」に近い方が勝者となる。
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- プレイヤーは手札を確認したのち、任意な回数だけカードを追加することができる。
 
-## Dependency Management
+- ディーラは手札が17以上になるまでカードを追加する。
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- 各カードの点数は以下の通りとする。
+
+   【 "A"=1or11、"2"~"10"=数値通り、"J"Q"K"=10 】
+
+## ゲームの手順
+1) トランプカードをランダムにシャッフルした山札を用意する。
+2) プレイヤーとディーラにカードを2枚ずつ配布する。
+3) プレイヤーは手札を確認する。 
+- プレイヤー手札：2枚とも確認する。
+- ディーラ手札：1枚目のみ公開する。2枚目は非公開カード。
+4) プレイヤーは任意に「カードの追加」または「ディーラとの勝負」を選択する。
+5) ディーラは手札を開示し、合計値が17以上となるまで引き続ける。
+6) プレイヤー、ディーラの両者ともBUSTしていない場合、手札の合計値で勝負する。
+
+## 勝敗判定
+手札の合計値が。。。
+
+    プレイヤー＞＞ディーラ： *プレイヤーの勝ち*
+    プレイヤー＜＜ディーラ： *プレイヤーの負け*
+    プレイヤー＝＝ディーラ： *引き分け*
+BUST。。。
+
+    プレイヤーがBUST： *プレイヤーの負け*
+    ディーラがBUST： *プレイヤーの勝ち*
+
+## 用語
+BUST(バースト)：手札の合計値が「21」を超えた時プレイヤーまたはディーラは負けとなる。

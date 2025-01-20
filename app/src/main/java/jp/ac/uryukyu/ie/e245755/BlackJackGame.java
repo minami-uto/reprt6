@@ -1,16 +1,50 @@
 package jp.ac.uryukyu.ie.e245755;
 
+/**
+ * ブラックジャックの実質的なメインとなるクラス。
+ */
 public class BlackJackGame {
+    /**
+     * suit、rank、valueの入ったトランプがランダムに組まれた山札。
+     * @see Deck
+     */
     private Deck deck;
+    /**
+     * ArrayList<Card>:手札。
+     * isDealer: false。
+     * @see Player
+     */
     private Player player;
+    /**
+     * ArrayList<Card>:手札。
+     * isDealer: true。
+     * @see Player
+     */
     private Player dealer;
 
+    /**
+     * インスタンス生成。
+     */
     public BlackJackGame(){
         deck = new Deck();
         player = new Player(false);
         dealer = new Player(true);
     }
 
+    /**
+     * 実質的な　Mainメソッド。
+     * プレイヤー、ディーラに2枚ずつカードの配布。
+     * プレイヤー＝＞ディーラの順に手札を調整。
+     * 両者の合計値を判定処理。
+     * @see #deck
+     * @see #player
+     * @see #dealer
+     * @see Deck#draw()
+     * @see Player#addCard(Card)
+     * @see Player#isBust()
+     * @see Player#calculateHandValue()
+     * @see #determineWinner()
+     */
     public void start(){
         //プレイヤーとディーラに初期カードを2枚配布
         dealer.addCard(deck.draw());
@@ -43,6 +77,19 @@ public class BlackJackGame {
         determineWinner();
     }
 
+    /**
+     * 勝敗の判定メソッド。
+     * playerValue、dealerValue：手札の合計値
+     * プレイヤーのバースト：プレイヤーの負け
+     * ディーラのバースト：プレイヤーの勝ち
+     * プレイヤー＞ディーラ：プレイヤーの勝ち
+     * プレイヤー＜ディーラ：プレイヤーの負け
+     * プレイヤー＝ディーラ：引き分け
+     * @see #player
+     * @see #dealer
+     * @see Player#calculateHandValue()
+     * @see Player#isBust()
+     */
     private void determineWinner(){
         int playerValue = player.calculateHandValue();
         int dealerValue = dealer.calculateHandValue();

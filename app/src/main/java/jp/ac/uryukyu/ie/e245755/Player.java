@@ -54,17 +54,18 @@ public class Player {
             if(card.toString().contains("A")){ //手札にAが含まれるか
                 aceValue ++;
             }
-            while (aceValue > 0 && value <= 11) { //手札にAが含まれる　かつ　合計値が11未満
-                //"A"の値を11として換算する
-                value += 10;
-                aceValue --;
-            }
-            while (aceValue > 0 && value > 21) { //手札にAが含まれる　かつ　合計値が21以上
-                value -= 10; // "A" の値を 11 -> 1 に調整
-                aceValue--;
-            }
-            
         }
+        while (aceValue > 0 && value <= 11) { //手札にAが含まれる　かつ　合計値が11未満
+            //"A"の値を11として換算する
+            value += 10;
+            aceValue --;
+        }
+        while (aceValue > 0 && value > 21) { //手札にAが含まれる　かつ　合計値が21以上
+            value -= 10; // "A" の値を 11 -> 1 に調整
+            aceValue--;
+        }
+            
+        
         return value;
     }
    

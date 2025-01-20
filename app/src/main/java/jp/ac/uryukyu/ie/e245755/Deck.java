@@ -17,7 +17,7 @@ public class Deck {
      * Test:true、Run:false。
      * @see PlayerTest
      */
-    boolean TestFlag = false;
+    boolean TestFlag = true;
 
     /**
      * 山札を初期化、生成するコンストラクタ。
